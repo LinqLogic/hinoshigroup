@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hinoshi Group — Revenue Intelligence &amp; Reimbursement Strategy</title>
+  <meta name="description" content="Hinoshi Group quantifies reimbursement risk, margin exposure, and operational leakage across physician organizations — delivering executive-level financial intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       CONTACT MODAL
+  ════════════════════════════════════ -->
+  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-panel">
+
+      <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+
+      <!-- Form view -->
+      <div id="modal-form-view">
+        <p class="modal-eyebrow">Engage Hinoshi Group</p>
+        <h2 class="modal-title" id="modal-title">Start a Conversation</h2>
+        <p class="modal-sub">Strategic advisory for physician leaders and healthcare executives.</p>
+        <div class="modal-rule"></div>
+
+        <form id="contact-form" method="POST" action="https://formspree.io/f/xeerjbnd" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="f-email" name="email" placeholder="you@organization.com" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="f-org">Organization <span class="form-opt">(optional)</span></label>
+            <input type="text" id="f-org" name="organization" placeholder="Physician group, health system, or practice" autocomplete="organization" />
+          </div>
+
+          <div class="form-group">
+            <label for="f-msg">Message <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-msg" name="message" rows="5" placeholder="Briefly describe the reimbursement or revenue challenge you're navigating&#8230;" required></textarea>
+          </div>
+
+          <div class="form-error" id="form-error" role="alert" aria-live="polite" hidden>
+            Please fill in all required fields.
+          </div>
+
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <span class="btn-label">Send Message</span>
+            <span class="btn-sending" hidden>Sending&#8230;</span>
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Success view -->
+      <div id="modal-success-view" hidden>
+        <div class="success-inner">
+          <div class="success-check-wrap" aria-hidden="true">&#10003;</div>
+          <h2 class="modal-title">Message Sent</h2>
+          <p class="success-msg">Thank you &#8212; your message has been received. Hinoshi Group will be in touch shortly.</p>
+          <button class="btn-submit" id="btn-close-success">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Hinoshi Group</a>
+      <ul class="nav-links">
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#insight">Insight</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#founder">Founder</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon">&#9680;</span>
+      </button>
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#insight">Insight</a>
+      <a href="#impact">Impact</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Physician Groups &middot; Reimbursement Risk &middot; Revenue Intelligence</p>
+      <h1 class="hero-headline">
+        Revenue Intelligence
+      </h1>
+      <p class="hero-sub">
+        Quantifying reimbursement risk, margin exposure, and operational leakage across physician organizations.
+      </p>
+      <button class="btn-primary open-modal">Start a Conversation</button>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       CAPABILITIES
+  ════════════════════════════════════ -->
+  <section id="capabilities">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Advisory Services</span>
+        <h2>Strategic Advisory Capabilities</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="caps-grid">
+
+        <div class="cap-card" data-reveal>
+          <div class="cap-num">01</div>
+          <h3>Revenue Exposure<br />Intelligence</h3>
+          <ul>
+            <li>Identify reimbursement concentration risk across CPT distribution and payer mix</li>
+            <li>Quantify conversion factor impact across high-volume procedure codes</li>
+            <li>Surface site-of-service margin exposure before it reaches leadership</li>
+          </ul>
+        </div>
+
+        <div class="cap-card" data-reveal>
+          <div class="cap-num">02</div>
+          <h3>Physician Practice<br />Financial Diagnostics</h3>
+          <ul>
+            <li>Surface hidden margin compression and charge capture gaps</li>
+            <li>Identify coding exposure across top billed procedure categories</li>
+            <li>Quantify denial patterns and their downstream revenue impact</li>
+          </ul>
+        </div>
+
+        <div class="cap-card" data-reveal>
+          <div class="cap-num">03</div>
+          <h3>Strategic Decision<br />Support</h3>
+          <ul>
+            <li>Deliver clear, data-backed financial signals tied to reimbursement policy</li>
+            <li>Equip executive leadership with forward-looking exposure intelligence</li>
+            <li>Protect margin through proactive monitoring of utilization and regulatory shifts</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       REPRESENTATIVE INSIGHT
+  ════════════════════════════════════ -->
+  <section id="insight">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Case Example</span>
+        <h2>Representative Engagement</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="insight-block" data-reveal>
+        <div class="insight-label">Medicare &middot; Conversion Factor &middot; CY2025&ndash;2026</div>
+        <h3 class="insight-title">Medicare Conversion Factor<br />Exposure Assessment</h3>
+        <div class="insight-findings">
+          <div class="finding" data-reveal>
+            <div class="finding-dot"></div>
+            <p>Modeled the impact of the CY2026 MPFS conversion factor adjustment across physician CPT distribution and payer mix</p>
+          </div>
+          <div class="finding" data-reveal>
+            <div class="finding-dot"></div>
+            <p>Surfaced several high-volume procedures where reimbursement pressure could materially compress practice margin</p>
+          </div>
+          <div class="finding" data-reveal>
+            <div class="finding-dot"></div>
+            <p>Identified charge capture exposure concentrated within the top billed procedure categories</p>
+          </div>
+          <div class="finding" data-reveal>
+            <div class="finding-dot"></div>
+            <p>Delivered executive-ready exposure signals enabling leadership to proactively evaluate coding practices, service mix, and operational workflows</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       IMPACT METRICS
+  ════════════════════════════════════ -->
+  <section id="impact">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Engagement Scale</span>
+        <h2>Impact</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="metrics-grid">
+
+        <div class="metric-card" data-reveal>
+          <div class="metric-value">
+            <span class="metric-prefix">$</span><span class="counter" data-target="8.2" data-decimal="1">0</span><span class="metric-suffix">M</span>
+          </div>
+          <div class="metric-label">Revenue Exposure Quantified</div>
+        </div>
+
+        <div class="metric-card" data-reveal>
+          <div class="metric-value">
+            <span class="counter" data-target="120000" data-suffix="+">0</span>
+          </div>
+          <div class="metric-label">Claims Evaluated</div>
+        </div>
+
+        <div class="metric-card" data-reveal>
+          <div class="metric-value">
+            <span class="counter" data-target="600" data-suffix="+">0</span>
+          </div>
+          <div class="metric-label">CPT Codes Modeled</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       FOUNDER
+  ════════════════════════════════════ -->
+  <section id="founder">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Leadership</span>
+        <h2>Founder</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="founder-block" data-reveal>
+        <div class="founder-meta">
+          <h3 class="founder-name">Jonathon J. Robertson</h3>
+          <p class="founder-title">Healthcare Reimbursement Strategy<br />&amp; Physician Revenue Intelligence</p>
+          <div class="founder-divider"></div>
+        </div>
+        <div class="founder-bio">
+          <p>Jonathon J. Robertson works at the intersection of healthcare reimbursement policy, physician utilization patterns, and financial performance.</p>
+          <p>His work focuses on identifying how regulatory changes, CPT distribution, and operational workflows translate into measurable revenue exposure for physician organizations — surfacing the financial signals that drive executive decision-making before margin compression becomes a strategic liability.</p>
+          <p>Robertson's analytical background includes experience within large health system environments where reimbursement dynamics and operational performance are directly tied to strategic planning at the executive level.</p>
+          <p>Through Hinoshi Group, he advises physician leaders and healthcare executives seeking clearer visibility into how reimbursement dynamics are shaping financial performance — and where exposure or opportunity remains uncaptured.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       CONTACT
+  ════════════════════════════════════ -->
+  <section id="contact">
+    <div class="section-inner contact-inner">
+      <div class="contact-text" data-reveal>
+        <span class="section-label">Engage Hinoshi Group</span>
+        <h2>Start a Conversation</h2>
+        <div class="gold-rule"></div>
+        <p>Private physician groups increasingly face reimbursement volatility, margin compression, and operational complexity that demands executive-level financial clarity.</p>
+        <p>Hinoshi Group works with physician leaders and healthcare executives seeking to identify, quantify, and protect against the revenue exposure that reimbursement and policy change creates.</p>
+        <p>Start a conversation to explore where exposure or opportunity may exist within your organization.</p>
+        <a href="mailto:jonathon@hinoshigroup.com" class="contact-email">jonathon@hinoshigroup.com</a>
+        <button class="btn-primary open-modal">Start a Conversation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Hinoshi Group</span>
+        <span class="footer-location">Tulsa / Bixby, Oklahoma</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:jonathon@hinoshigroup.com">jonathon@hinoshigroup.com</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-copy">
+        &copy; <span id="year"></span> Hinoshi Group. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=2"></script>
+</body>
+</html>
