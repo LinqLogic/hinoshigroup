@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hinoshi Group — Revenue Leakage Detection &amp; Reimbursement Strategy for Physician Groups</title>
+  <meta name="description" content="Hinoshi Group identifies where physician groups and small businesses are losing revenue — through denial patterns, reimbursement changes, and operational leakage — and delivers clear financial intelligence to stop it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       CONTACT MODAL
+  ════════════════════════════════════ -->
+  <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-panel">
+
+      <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+
+      <!-- Form view -->
+      <div id="modal-form-view">
+        <p class="modal-eyebrow">Engage Hinoshi Group</p>
+        <h2 class="modal-title" id="modal-title">Start a Conversation</h2>
+        <p class="modal-sub">Revenue leakage analysis for physician groups and small businesses.</p>
+        <div class="modal-rule"></div>
+
+        <form id="contact-form" method="POST" action="https://formspree.io/f/xeerjbnd" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="f-name" name="name" placeholder="Your full name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="f-email" name="email" placeholder="you@organization.com" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="f-org">Organization <span class="form-opt">(optional)</span></label>
+            <input type="text" id="f-org" name="organization" placeholder="Physician group, health system, or practice" autocomplete="organization" />
+          </div>
+
+          <div class="form-group">
+            <label for="f-msg">Message <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-msg" name="message" rows="5" placeholder="Briefly describe where you believe revenue is being lost or why you reached out&#8230;" required></textarea>
+          </div>
+
+          <div class="form-error" id="form-error" role="alert" aria-live="polite" hidden>
+            Please fill in all required fields.
+          </div>
+
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <span class="btn-label">Send Message</span>
+            <span class="btn-sending" hidden>Sending&#8230;</span>
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Success view -->
+      <div id="modal-success-view" hidden>
+        <div class="success-inner">
+          <div class="success-check-wrap" aria-hidden="true">&#10003;</div>
+          <h2 class="modal-title">Message Sent</h2>
+          <p class="success-msg">Thank you &#8212; your message has been received. Hinoshi Group will be in touch shortly.</p>
+          <button class="btn-submit" id="btn-close-success">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Hinoshi Group</a>
+      <ul class="nav-links">
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#insight">Insight</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#founder">Founder</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon">&#9680;</span>
+      </button>
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#insight">Insight</a>
+      <a href="#insights">Insights</a>
+      <a href="#impact">Impact</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════
+       HERO
+  ════════════════════════════════════ -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Physician Groups &middot; Revenue Leakage &middot; Denial Analysis &middot; Reimbursement Impact</p>
+      <h1 class="hero-headline">
+        Find the Revenue Your Practice Is Losing
+      </h1>
+      <p class="hero-sub">
+        Hinoshi Group identifies where physician groups lose revenue — through denial patterns, reimbursement shifts, and billing gaps — and delivers clear financial analysis that leadership can act on.
+      </p>
+      <button class="btn-primary open-modal">Start a Conversation</button>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       CAPABILITIES
+  ════════════════════════════════════ -->
+  <section id="capabilities">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Advisory Services</span>
+        <h2>What Hinoshi Group Does</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="caps-grid">
+
+        <div class="cap-card">
+          <div class="cap-num">01</div>
+          <h3>Revenue Leakage<br />Audit</h3>
+          <ul>
+            <li>Many practices lose revenue without a clear explanation — through undercoding, charge capture gaps, or payer mix shifts that go unmeasured</li>
+            <li>Hinoshi Group audits your CPT distribution and payer mix to identify exactly where revenue is being left behind</li>
+            <li>You receive a clear picture of lost revenue by procedure category and payer, with enough detail to act on it</li>
+          </ul>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-num">02</div>
+          <h3>Denials Intelligence<br />Analysis</h3>
+          <ul>
+            <li>Rising denial rates erode revenue quietly — and most practices don't know which procedures, payers, or billing patterns are driving the problem</li>
+            <li>Hinoshi Group analyzes denial patterns across your top billed procedure codes to surface where losses are concentrated and why they are occurring</li>
+            <li>You get a prioritized view of denial-driven revenue loss, with the data needed to address root causes directly</li>
+          </ul>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-num">03</div>
+          <h3>Medicare Reimbursement<br />Impact Modeling</h3>
+          <ul>
+            <li>Medicare conversion factor changes and MPFS updates affect every physician group differently — depending on which procedures you bill and how much of your revenue comes from Medicare</li>
+            <li>Hinoshi Group models the financial impact of reimbursement changes against your actual CPT volume and payer mix</li>
+            <li>Leadership receives a concrete dollar estimate of how policy changes will affect your revenue — before those changes take effect</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       REPRESENTATIVE INSIGHT
+  ════════════════════════════════════ -->
+  <section id="insight">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Case Example</span>
+        <h2>Representative Engagement</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="insight-block">
+        <div class="insight-label">Medicare &middot; Conversion Factor &middot; CY2025&ndash;2026</div>
+        <h3 class="insight-title">Measuring the Financial Impact of<br />Medicare Reimbursement Changes</h3>
+        <div class="insight-findings">
+          <div class="finding">
+            <div class="finding-dot"></div>
+            <p>Modeled the revenue impact of the CY2026 Medicare Physician Fee Schedule conversion factor adjustment applied against a physician group's actual CPT billing volume and payer mix — translating a policy change into a real dollar figure</p>
+          </div>
+          <div class="finding">
+            <div class="finding-dot"></div>
+            <p>Identified several high-volume procedure codes where the reimbursement reduction would have the largest direct effect on practice revenue, allowing leadership to prioritize their response</p>
+          </div>
+          <div class="finding">
+            <div class="finding-dot"></div>
+            <p>Surfaced charge capture gaps concentrated within the top billed procedure categories — revealing revenue that was being lost independent of the reimbursement change</p>
+          </div>
+          <div class="finding">
+            <div class="finding-dot"></div>
+            <p>Delivered a clear financial summary enabling leadership to evaluate coding practices, service mix adjustments, and operational workflows before revenue loss became a material problem</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       INSIGHTS — ARTICLE DIRECTORY
+  ════════════════════════════════════ -->
+  <section id="insights">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Insights</span>
+        <h2>From the Practice</h2>
+        <div class="gold-rule"></div>
+      </div>
+
+      <div class="insights-grid">
+
+        <article class="insight-article-card">
+          <a href="insights/why-physician-groups-lose-revenue.html" class="insight-article-link" aria-label="Read: Why Physician Groups Lose Revenue Even When Volume Is Strong">
+            <div class="insight-article-label">Physician Group Revenue &middot; Analysis</div>
+            <h3 class="insight-article-title">Why Physician Groups Lose Revenue Even When Volume Is Strong</h3>
+            <p class="insight-article-excerpt">Most physician group revenue loss is invisible. Claim denials, CPT coding gaps, Medicare reimbursement changes, and operational leakage quietly erode financial performance — even when patient volume looks healthy.</p>
+            <span class="insight-article-read">Read Insight <span class="insight-article-arrow" aria-hidden="true">&#8594;</span></span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       IMPACT METRICS
+  ════════════════════════════════════ -->
+  <section id="impact">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Engagement Scale</span>
+        <h2>Impact</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="metrics-grid">
+
+        <div class="metric-card" data-reveal>
+          <div class="metric-value">
+            <span class="metric-prefix">$</span><span class="counter" data-target="8.2" data-decimal="1">0</span><span class="metric-suffix">M</span>
+          </div>
+          <div class="metric-label">Lost Revenue Identified</div>
+        </div>
+
+        <div class="metric-card" data-reveal>
+          <div class="metric-value">
+            <span class="counter" data-target="120000" data-suffix="+">0</span>
+          </div>
+          <div class="metric-label">Claims Analyzed</div>
+        </div>
+
+        <div class="metric-card" data-reveal>
+          <div class="metric-value">
+            <span class="counter" data-target="600" data-suffix="+">0</span>
+          </div>
+          <div class="metric-label">CPT Codes Modeled</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       FOUNDER
+  ════════════════════════════════════ -->
+  <section id="founder">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-label">Leadership</span>
+        <h2>Founder</h2>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="founder-block">
+        <div class="founder-meta">
+          <h3 class="founder-name">Jonathon J. Robertson</h3>
+          <p class="founder-title">Healthcare Reimbursement Strategy<br />&amp; Physician Revenue Leakage Analysis</p>
+          <div class="founder-divider"></div>
+        </div>
+        <div class="founder-bio">
+          <p>Jonathon J. Robertson works at the intersection of healthcare reimbursement policy, physician billing patterns, and financial performance for physician groups and small businesses.</p>
+          <p>His work focuses on a specific problem: identifying where organizations are losing revenue they don't know they're losing. That includes understanding how Medicare reimbursement changes, CPT code distribution, denial patterns, and operational gaps translate into measurable financial loss — and presenting that analysis in terms leadership can act on.</p>
+          <p>Robertson's analytical background includes experience within large health system environments where reimbursement dynamics directly shaped executive financial decisions and strategic planning.</p>
+          <p>Through Hinoshi Group, he works with physician leaders and practice administrators who suspect money is being left on the table — and need someone to find it, quantify it, and explain exactly why it's happening.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       CONTACT
+  ════════════════════════════════════ -->
+  <section id="contact">
+    <div class="section-inner contact-inner">
+      <div class="contact-text">
+        <span class="section-label">Engage Hinoshi Group</span>
+        <h2>Something Is Off. Let's Find It.</h2>
+        <div class="gold-rule"></div>
+        <p>Most physician groups and small businesses that reach out already know something is wrong financially — revenue is softer than it should be, denials have crept up, or a reimbursement change has made the numbers harder to explain. The problem is rarely obvious. It's buried in procedure-level billing data, payer mix patterns, or policy changes that haven't been modeled against your actual volume.</p>
+        <p>Hinoshi Group works with physician leaders and practice administrators who need a clear answer to a specific question: where is the revenue going, and why?</p>
+        <p>If you're looking for that answer, start a conversation below.</p>
+        <a href="mailto:jonathon@hinoshigroup.com" class="contact-email">jonathon@hinoshigroup.com</a>
+        <button class="btn-primary open-modal">Start a Conversation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">Hinoshi Group</span>
+        <span class="footer-location">Tulsa / Bixby, Oklahoma</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:jonathon@hinoshigroup.com">jonathon@hinoshigroup.com</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="footer-copy">
+        &copy; <span id="year"></span> Hinoshi Group. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Insights section styles (scoped, no conflict with styles.css) ── -->
+  <style>
+    #insights {
+      background: var(--bg, #0d0d0d);
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1px;
+      background: var(--border, rgba(255,255,255,0.08));
+      border: 1px solid var(--border, rgba(255,255,255,0.08));
+    }
+
+    .insight-article-card {
+      background: var(--surface, #141414);
+    }
+
+    .insight-article-link {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2.4rem;
+      text-decoration: none;
+      height: 100%;
+      transition: background 0.2s;
+    }
+    .insight-article-link:hover {
+      background: #1a1a1a;
+    }
+    .insight-article-link:hover .insight-article-arrow {
+      transform: translateX(5px);
+    }
+
+    .insight-article-label {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold, #b89a5e);
+    }
+
+    .insight-article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--text, #e8e4dc);
+      margin: 0;
+    }
+
+    .insight-article-excerpt {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--text-muted, #9a9488);
+      flex: 1;
+      margin: 0;
+    }
+
+    .insight-article-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.76rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold, #b89a5e);
+      margin-top: 0.4rem;
+    }
+
+    .insight-article-arrow {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    @media (max-width: 600px) {
+      .insight-article-link { padding: 1.8rem 1.4rem; }
+    }
+  </style>
+
+  <script src="script.js?v=2"></script>
+</body>
+</html>
