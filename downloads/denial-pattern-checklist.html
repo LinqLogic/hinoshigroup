@@ -1,427 +1,405 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5 Signs Your Practice Has a Denial Problem You Haven't Measured — Hinoshi Group</title>
-  <meta name="description" content="A practical checklist for physician group leaders to identify whether denial-driven revenue loss is going unmeasured at their practice." />
+  <title>Why Physician Groups Lose Revenue Even When Volume Is Strong — Hinoshi Group</title>
+  <meta name="description" content="Most physician group revenue loss is invisible. Claim denials, CPT coding gaps, Medicare reimbursement changes, and operational leakage quietly erode financial performance — even when patient volume looks healthy." />
+  <meta property="og:title" content="Why Physician Groups Lose Revenue Even When Volume Is Strong" />
+  <meta property="og:description" content="Hidden revenue loss in physician groups rarely comes from low volume. It comes from denials, undercoding, MPFS changes, and billing gaps that go unmeasured." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://hinoshigroup.com/insights/why-physician-groups-lose-revenue.html" />
+  <meta property="og:site_name" content="Hinoshi Group" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Why Physician Groups Lose Revenue Even When Volume Is Strong" />
+  <meta name="twitter:description" content="Hidden revenue loss in physician groups rarely comes from low volume. It comes from denials, undercoding, MPFS changes, and billing gaps that go unmeasured." />
+  <link rel="canonical" href="https://hinoshigroup.com/insights/why-physician-groups-lose-revenue.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why Physician Groups Lose Revenue Even When Volume Is Strong",
+    "description": "Most physician group revenue loss is invisible. Claim denials, CPT coding gaps, Medicare reimbursement changes, and operational leakage quietly erode financial performance — even when patient volume looks healthy.",
+    "url": "https://hinoshigroup.com/insights/why-physician-groups-lose-revenue.html",
+    "datePublished": "2026-08-30",
+    "dateModified": "2026-08-30",
+    "author": {
+      "@type": "Person",
+      "name": "Jonathon J. Robertson",
+      "url": "https://hinoshigroup.com/#founder"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hinoshi Group",
+      "url": "https://hinoshigroup.com"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Physician Group Revenue Leakage"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     :root {
-      --bg:       #0B0F14;
-      --surface:  #111722;
-      --border:   rgba(255,255,255,0.07);
-      --gold:     #B0893D;
-      --gold-dim: rgba(176,137,61,0.25);
-      --white:    #f4f2ee;
-      --gray-1:   #c8c5be;
-      --gray-2:   #8c8880;
+      --bg:        #0d0d0d;
+      --surface:   #141414;
+      --border:    rgba(255,255,255,0.08);
+      --gold:      #b89a5e;
+      --gold-dim:  rgba(184,154,94,0.18);
+      --text:      #e8e4dc;
+      --text-muted:#9a9488;
+      --text-dim:  #6b6560;
+      --max-w:     720px;
     }
-
+ 
     html { scroll-behavior: smooth; }
-
+ 
     body {
       background: var(--bg);
-      color: var(--white);
+      color: var(--text);
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
-      line-height: 1.7;
-      font-size: 15px;
+      line-height: 1.75;
+      font-size: 1rem;
       -webkit-font-smoothing: antialiased;
     }
-
+ 
     /* ── NAV ── */
     nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       border-bottom: 1px solid var(--border);
-      background: rgba(11,15,20,0.96);
-      padding: 0 2rem;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
     }
     .nav-inner {
-      max-width: 860px;
+      max-width: 1100px;
       margin: 0 auto;
-      height: 56px;
+      padding: 0 2rem;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 500;
-      color: var(--white);
+      color: var(--text);
       text-decoration: none;
       letter-spacing: 0.04em;
     }
     .nav-back {
-      font-size: 0.75rem;
-      color: var(--gray-2);
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-muted);
       text-decoration: none;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
     .nav-back:hover { color: var(--gold); }
-
-    /* ── PRINT BUTTON ── */
-    .print-bar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 2rem;
-      display: flex;
-      justify-content: center;
-    }
-    .print-bar-inner {
-      max-width: 860px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .print-bar p {
-      font-size: 11px;
-      color: var(--gray-2);
-      letter-spacing: 0.06em;
-    }
-    .btn-print {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--bg);
-      background: var(--gold);
-      border: none;
-      padding: 9px 20px;
-      cursor: pointer;
-      transition: opacity 0.2s;
-      white-space: nowrap;
-    }
-    .btn-print:hover { opacity: 0.85; }
-
-    /* ── PAGE WRAPPER ── */
-    .page {
-      max-width: 860px;
+ 
+    /* ── ARTICLE WRAPPER ── */
+    .article-wrap {
+      max-width: var(--max-w);
       margin: 0 auto;
-      padding: 48px 2rem 80px;
+      padding: 120px 2rem 100px;
     }
-
+ 
     /* ── HEADER ── */
-    .doc-eyebrow {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+    .article-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 14px;
+      margin-bottom: 1.4rem;
     }
-    .doc-title {
+    .article-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-size: clamp(2rem, 5vw, 2.8rem);
       font-weight: 400;
       line-height: 1.2;
-      color: var(--white);
-      margin-bottom: 16px;
+      color: var(--text);
+      margin-bottom: 1.6rem;
     }
-    .doc-rule {
+    .article-rule {
       width: 40px;
       height: 1px;
       background: var(--gold);
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
     }
-    .doc-intro {
-      font-size: 15px;
-      color: var(--gray-1);
-      line-height: 1.75;
-      max-width: 600px;
-      margin-bottom: 48px;
-      padding-bottom: 32px;
+    .article-meta {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem;
       border-bottom: 1px solid var(--border);
     }
-
-    /* ── CHECKLIST ── */
-    .checklist {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 48px;
+ 
+    /* ── BODY COPY ── */
+    .article-body p {
+      margin-bottom: 1.6rem;
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.85;
     }
-
-    .check-item {
-      background: var(--bg);
-      padding: 28px 32px;
-      display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 20px;
-      align-items: start;
-      transition: background 0.2s;
-    }
-    .check-item:hover { background: var(--surface); }
-
-    .check-box {
-      width: 22px;
-      height: 22px;
-      border: 1px solid var(--gold-dim);
-      margin-top: 3px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .check-box:hover { border-color: var(--gold); }
-    .check-box.checked {
-      background: var(--gold-dim);
-      border-color: var(--gold);
-    }
-    .check-box.checked::after {
-      content: '✓';
-      font-size: 13px;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .check-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      color: var(--gold);
-      margin-bottom: 8px;
-    }
-    .check-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.3;
-      margin-bottom: 10px;
-    }
-    .check-desc {
-      font-size: 13.5px;
-      color: var(--gray-1);
-      line-height: 1.7;
-    }
-
-    /* ── SCORE + CTA ── */
-    .result-block {
-      border: 1px solid var(--gold-dim);
-      background: var(--surface);
-      padding: 36px 40px;
-    }
-    .result-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-    .result-title {
+    .article-body h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.55rem;
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.25;
-      margin-bottom: 16px;
-    }
-    .result-body {
-      font-size: 14px;
-      color: var(--gray-1);
-      line-height: 1.75;
-      margin-bottom: 24px;
-      max-width: 560px;
-    }
-    .result-offer {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-    .offer-tag {
-      font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.16em;
+      color: var(--text);
+      margin: 3rem 0 1rem;
+      line-height: 1.3;
+    }
+    .article-body h2::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 0.9rem;
+    }
+    .article-body strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+ 
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      border-left: 2px solid var(--gold);
+      padding: 1.2rem 1.6rem;
+      margin: 2.5rem 0;
+      background: var(--gold-dim);
+    }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text) !important;
+      line-height: 1.6;
+      margin: 0 !important;
+    }
+ 
+    /* ── INSIGHT LIST ── */
+    .insight-list {
+      list-style: none;
+      margin: 1.2rem 0 1.8rem;
+      padding: 0;
+    }
+    .insight-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.97rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .insight-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+ 
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      margin-top: 4rem;
+      padding: 2.4rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .cta-block p.cta-label {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--gold);
-      border: 1px solid var(--gold-dim);
-      padding: 5px 12px;
-      white-space: nowrap;
+      margin-bottom: 0.8rem;
     }
-    .offer-detail {
-      font-size: 13px;
-      color: var(--gray-2);
+    .cta-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.3;
     }
-    .result-cta {
+    .cta-block p.cta-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+      line-height: 1.75;
+    }
+    .cta-block a.cta-link {
       display: inline-block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--bg);
-      background: var(--gold);
-      padding: 13px 28px;
+      color: var(--gold);
       text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
       transition: opacity 0.2s;
     }
-    .result-cta:hover { opacity: 0.85; }
-
+    .cta-block a.cta-link:hover { opacity: 0.7; }
+ 
     /* ── FOOTER ── */
-    .doc-footer {
-      margin-top: 56px;
-      padding-top: 24px;
+    footer {
       border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      padding: 2rem;
+      text-align: center;
     }
-    .doc-footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--white);
-    }
-    .doc-footer-contact {
-      font-size: 11px;
-      color: var(--gray-2);
-      text-decoration: none;
+    footer p {
+      font-size: 0.78rem;
+      color: var(--text-dim);
       letter-spacing: 0.04em;
     }
-    .doc-footer-contact:hover { color: var(--gold); }
-
-    /* ── PRINT STYLES ── */
-    @media print {
-      nav, .print-bar { display: none !important; }
-      body { background: #fff; color: #111; font-size: 13px; }
-      .page { padding: 0; max-width: 100%; }
-      :root {
-        --bg: #fff;
-        --surface: #f5f5f5;
-        --border: rgba(0,0,0,0.12);
-        --gold: #8a6620;
-        --gold-dim: rgba(138,102,32,0.12);
-        --white: #111;
-        --gray-1: #333;
-        --gray-2: #666;
-      }
-      .check-item { page-break-inside: avoid; }
-      .result-block { page-break-inside: avoid; }
-      .result-cta { display: none; }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
     }
-
-    @media (max-width: 560px) {
-      .check-item { padding: 20px; grid-template-columns: 30px 1fr; gap: 12px; }
-      .result-block { padding: 24px; }
+    footer a:hover { color: var(--gold); }
+ 
+    @media (max-width: 600px) {
+      .article-wrap { padding: 100px 1.25rem 80px; }
+      .cta-block { padding: 1.6rem; }
     }
   </style>
 </head>
 <body>
-
+ 
   <nav>
     <div class="nav-inner">
       <a href="../index.html" class="nav-logo">Hinoshi Group</a>
       <a href="../index.html" class="nav-back">&larr; Back to Home</a>
     </div>
   </nav>
-
-  <div class="print-bar">
-    <div class="print-bar-inner">
-      <p>To save as PDF: File &rarr; Print &rarr; Save as PDF</p>
-      <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
+ 
+  <main>
+    <div class="article-wrap">
+ 
+      <p class="article-eyebrow">Insight &middot; Physician Group Revenue</p>
+      <h1 class="article-title">Why Physician Groups Lose Revenue Even When Volume Is Strong</h1>
+      <div class="article-rule"></div>
+      <p class="article-meta">Hinoshi Group &middot; Revenue Intelligence</p>
+ 
+      <div class="article-body">
+ 
+        <p>For many physician group leaders, patient volume feels like a reliable proxy for financial health. Schedules are full. Procedures are being performed. The practice is active. And yet, revenue doesn't reflect it.</p>
+ 
+        <p>This gap — between volume and financial performance — is one of the most common and least understood problems in physician group economics. The revenue is often there in theory. It simply isn't being captured in full. Understanding why requires looking at a different set of numbers than most groups track.</p>
+ 
+        <div class="pull-quote">
+          <p>The revenue is often there in theory. It simply isn't being captured in full.</p>
+        </div>
+ 
+        <h2>Denials Are Increasing — Often Quietly</h2>
+ 
+        <p>Claim denials are one of the largest sources of physician group revenue loss, and one of the hardest to see clearly. Most practices track denied claims in some form, but the visibility is often superficial. A denial rate that moves from two percent to four percent may look small in isolation. Applied across thousands of claims and hundreds of procedure codes, it represents a substantial and ongoing revenue problem.</p>
+ 
+        <p>What makes denial-driven revenue loss particularly difficult to address is that the causes vary by payer, by procedure code, and by the specific reason for each denial. A practice losing revenue to denials is rarely dealing with a single issue — it's dealing with a cluster of patterns that each require a different response. Without procedure-level and payer-level analysis, the financial impact remains invisible and the root causes go unaddressed.</p>
+ 
+        <ul class="insight-list">
+          <li>A 2% increase in denial rates across a high-volume group can represent hundreds of thousands of dollars in annual revenue loss</li>
+          <li>Denial patterns vary significantly by CPT code, payer, and billing workflow — general tracking misses the detail that drives recovery</li>
+          <li>Many denials are never successfully appealed because the underlying cause hasn't been identified</li>
+        </ul>
+ 
+        <h2>CPT Code Distribution Is Misaligned With Actual Work</h2>
+ 
+        <p>Physician groups are reimbursed based on what they bill. When the codes being billed don't accurately reflect the work being performed, revenue is left behind. This is sometimes called undercoding, and it is far more common than most practice administrators recognize.</p>
+ 
+        <p>Undercoding typically isn't the result of intentional decisions. It tends to develop gradually — through documentation habits, coding defaults embedded in EHR systems, or a lack of review at the procedure level. Over time, a practice may consistently bill lower-value codes for services that would support higher reimbursement, systematically reducing its own revenue without realizing it.</p>
+ 
+        <p>CPT distribution analysis — comparing a practice's coding patterns against benchmark distributions for similar specialties — is one of the most direct ways to identify where reimbursement is being lost through this kind of misalignment. For physician groups that have never conducted this analysis, the findings are frequently significant.</p>
+ 
+        <h2>Medicare Reimbursement Changes Are Not Being Modeled</h2>
+ 
+        <p>The Medicare Physician Fee Schedule is updated annually. Each update includes adjustments to the conversion factor — the multiplier that translates Relative Value Units into actual payment amounts — as well as changes to individual procedure code values and policy parameters that affect how specific services are reimbursed.</p>
+ 
+        <p>These changes affect every physician group that bills Medicare. But the financial impact is not uniform. A conversion factor decrease affects a group heavily concentrated in high-RVU surgical procedures very differently than a group whose volume is weighted toward evaluation and management codes. Most groups know that MPFS updates are coming. Few model their actual financial exposure before those changes take effect.</p>
+ 
+        <p>The result is that revenue shifts happen silently. Leadership discovers the financial impact in the back half of the year, after the damage has accumulated, with limited ability to respond. Groups that model reimbursement changes prospectively — against their actual CPT volume and payer mix — have the information they need to adjust workflows, service mix, or financial projections before the impact becomes material.</p>
+ 
+        <h2>Payment Variance Between Expected and Actual Reimbursement</h2>
+ 
+        <p>Payers do not always pay what they have contractually agreed to pay. This is a well-documented issue in healthcare billing, and it represents a persistent source of revenue loss for physician groups that lack the infrastructure to identify it systematically.</p>
+ 
+        <p>Expected reimbursement — what a practice should receive based on its payer contracts and the codes billed — and actual reimbursement often diverge in ways that are difficult to detect at scale. Individual underpayments may be small. Accumulated across thousands of claims over months, they can represent significant lost revenue. Without a system for comparing expected to actual payment at the claim level, this gap remains invisible and uncollected.</p>
+ 
+        <h2>Operational Leakage at the Front End</h2>
+ 
+        <p>Not all physician group revenue loss originates in the billing and coding process. A meaningful portion begins upstream — in the workflows that determine whether a service gets documented, charged, and submitted in the first place.</p>
+ 
+        <p>Missed charges are a common and underappreciated problem. Services are performed but not captured for billing. Procedures are documented but the charge is not entered. Orders are placed but not linked to a billable encounter. Each of these represents a revenue loss that never appears in denial tracking or reimbursement analysis, because the claim was never generated.</p>
+ 
+        <ul class="insight-list">
+          <li>Charge capture gaps are often concentrated in specific service lines, providers, or encounter types</li>
+          <li>Front-end registration errors — incorrect insurance information, missing authorizations — create downstream denials that appear to be billing problems but originate in intake</li>
+          <li>Workflow inefficiencies that affect documentation completeness directly affect what can be billed and collected</li>
+        </ul>
+ 
+        <p>Identifying operational leakage requires looking at the revenue cycle end to end — not just at what was submitted and denied, but at the gap between what was delivered and what was ever entered into the billing system.</p>
+ 
+        <h2>What High-Performing Groups Do Differently</h2>
+ 
+        <p>Physician groups with strong financial performance relative to their volume share a common characteristic: they measure revenue at a level of detail that most practices don't. They don't rely on aggregate revenue figures to tell them whether performance is healthy. They look at procedure-level data, payer-level data, and denial patterns in enough detail to catch problems before they accumulate.</p>
+ 
+        <p>Specifically, groups that consistently protect their revenue tend to do several things that distinguish them from peers:</p>
+ 
+        <ul class="insight-list">
+          <li><strong>They review CPT distribution regularly</strong> — comparing their coding patterns to specialty benchmarks and looking for procedures where billing doesn't align with documented clinical work</li>
+          <li><strong>They track denials by code and by payer</strong> — not just as an aggregate number, but at the level of detail needed to identify which specific combinations of procedure, payer, and billing trigger are producing the most losses</li>
+          <li><strong>They model reimbursement changes before they take effect</strong> — running their actual CPT volume against proposed MPFS updates to understand their real exposure, not a generalized estimate</li>
+          <li><strong>They review expected versus actual reimbursement</strong> — on a regular basis and at the claim level, not as an annual exercise</li>
+          <li><strong>They treat operational workflows as revenue issues</strong> — understanding that charge capture, documentation, and front-end intake are as financially consequential as anything that happens in the billing department</li>
+        </ul>
+ 
+        <p>None of this requires unusual resources. It requires a structured, granular approach to measuring revenue performance — and the willingness to look at the data that most groups don't examine closely enough.</p>
+ 
+        <h2>The Revenue Is Usually There</h2>
+ 
+        <p>Physician group revenue loss is rarely the result of a single obvious failure. It's the result of several overlapping, relatively quiet problems — each of which appears manageable in isolation, and each of which represents real money leaving the practice without explanation.</p>
+ 
+        <p>Denial patterns that haven't been analyzed at the procedure level. Coding distributions that haven't been compared against clinical work. Reimbursement changes that haven't been modeled against actual volume. Payment variances that haven't been tracked. Charges that were never entered.</p>
+ 
+        <p>When a physician group leader says that volume is strong but revenue doesn't match it, they are usually right that something is wrong. The problem isn't finding the right explanation in theory — these patterns are well understood. The problem is identifying which ones apply to their specific practice, at what scale, and where to start.</p>
+ 
+        <p>That's the work. And it begins with looking at the right numbers.</p>
+ 
+        <div class="cta-block">
+          <p class="cta-label">Engage Hinoshi Group</p>
+          <h3>If something feels off, a focused review can identify exactly where revenue is being lost — and why.</h3>
+          <p class="cta-body">Hinoshi Group works with physician groups and practice administrators to identify, quantify, and explain hidden revenue loss using real billing data. If you're seeing strong volume but inconsistent financial performance, a structured analysis can quickly surface where the gap is coming from.</p>
+          <a href="../index.html#contact" class="cta-link">Start a Conversation &rarr;</a>
+        </div>
+ 
+      </div>
     </div>
-  </div>
-
-  <div class="page">
-
-    <p class="doc-eyebrow">Hinoshi Group &middot; Denial Revenue Intelligence</p>
-    <h1 class="doc-title">5 Signs Your Practice Has a Denial Problem You Haven't Measured</h1>
-    <div class="doc-rule"></div>
-    <p class="doc-intro">Most physician groups track denied claims. Few analyze the patterns behind them. These five signs indicate that denial-driven revenue loss may be larger — and more recoverable — than your current reporting shows.</p>
-
-    <div class="checklist" id="checklist">
-
-      <div class="check-item">
-        <div class="check-box" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCheck(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCheck(this)"></div>
-        <div>
-          <p class="check-num">01</p>
-          <h2 class="check-title">Your denial rate is climbing, but you can't say which CPT codes are driving it</h2>
-          <p class="check-desc">An aggregate denial rate tells you that a problem exists. It doesn't tell you where. If you can't identify the top five procedure codes contributing to your denial volume — by revenue, not just claim count — you're managing a blended average rather than the actual problem.</p>
-        </div>
-      </div>
-
-      <div class="check-item">
-        <div class="check-box" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCheck(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCheck(this)"></div>
-        <div>
-          <p class="check-num">02</p>
-          <h2 class="check-title">You don't know which payers deny your highest-volume procedures — or at what rate</h2>
-          <p class="check-desc">The same CPT code can carry a 3% denial rate with one payer and a 22% rate with another. Without payer-level stratification, you can't distinguish a billing quality problem from a payer policy change — and your appeals strategy will be wrong for both.</p>
-        </div>
-      </div>
-
-      <div class="check-item">
-        <div class="check-box" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCheck(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCheck(this)"></div>
-        <div>
-          <p class="check-num">03</p>
-          <h2 class="check-title">Your billing team is working denials, but no one is analyzing the patterns</h2>
-          <p class="check-desc">Reworking denied claims recovers revenue from individual transactions. Analyzing denial patterns prevents the same loss from occurring on next month's claims. If your team is focused entirely on remediation, the root cause stays in place and the queue grows faster than it's being cleared.</p>
-        </div>
-      </div>
-
-      <div class="check-item">
-        <div class="check-box" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCheck(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCheck(this)"></div>
-        <div>
-          <p class="check-num">04</p>
-          <h2 class="check-title">You haven't modeled how Medicare's annual rate changes affect your specific procedure mix</h2>
-          <p class="check-desc">The Medicare Physician Fee Schedule is updated every year. The financial impact depends entirely on which CPT codes you bill and how much of your volume is Medicare. A 2.5% conversion factor change may mean $60K in annual revenue impact for one practice and $480K for another. Without modeling it against your actual data, you won't know until the damage has accumulated.</p>
-        </div>
-      </div>
-
-      <div class="check-item">
-        <div class="check-box" role="checkbox" aria-checked="false" tabindex="0" onclick="toggleCheck(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleCheck(this)"></div>
-        <div>
-          <p class="check-num">05</p>
-          <h2 class="check-title">Revenue has softened despite stable patient volume and no obvious explanation</h2>
-          <p class="check-desc">This is the clearest signal that something structural is wrong — not volume, but what happens after the patient is seen. Denial-driven loss, reimbursement shifts, and coding gaps are the most common culprits. The fact that leadership can't explain the gap is itself diagnostic: the data required to answer the question isn't being analyzed.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="result-block">
-      <p class="result-label">If three or more of these apply</p>
-      <h2 class="result-title">A Denial Pattern Audit will tell you exactly where the revenue is going — and why.</h2>
-      <p class="result-body">Hinoshi Group analyzes your top 15&ndash;20 denied procedures by CPT code and payer, quantifies the revenue at risk, and identifies the specific patterns driving the loss. You receive a structured report and a working debrief within 5&ndash;7 business days.</p>
-      <div class="result-offer">
-        <span class="offer-tag">Denial Pattern Audit</span>
-        <span class="offer-detail">$1,500 fixed fee &middot; 5&ndash;7 business days &middot; No retainer required</span>
-      </div>
-      <a href="../index.html#contact" class="result-cta">Start with a Denial Pattern Audit &rarr;</a>
-    </div>
-
-    <div class="doc-footer">
-      <span class="doc-footer-brand">Hinoshi Group</span>
-      <a href="mailto:jonathon@hinoshigroup.com" class="doc-footer-contact">jonathon@hinoshigroup.com &middot; hinoshigroup.com</a>
-    </div>
-
-  </div>
-
-  <script>
-    function toggleCheck(el) {
-      const checked = el.classList.toggle('checked');
-      el.setAttribute('aria-checked', checked ? 'true' : 'false');
-    }
-  </script>
-
+  </main>
+ 
+  <footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> <a href="../index.html">Hinoshi Group</a> &middot; Tulsa / Bixby, Oklahoma &middot; <a href="mailto:jonathon@hinoshigroup.com">jonathon@hinoshigroup.com</a></p>
+  </footer>
+ 
 </body>
 </html>
